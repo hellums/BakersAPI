@@ -1,0 +1,29 @@
+﻿{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:43026",
+      "sslPort": 44364
+    }
+  },
+  "profiles": {
+    "BakersAPI": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "launchUrl": "api",
+      "applicationUrl": "https://localhost:7195;http://localhost:5195",
+      "environmentVariables": {
+      }
+    },
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "type/sandwich/weight/1100",
+      "environmentVariables": {
+      }
+    }
+  }
+}
