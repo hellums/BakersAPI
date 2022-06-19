@@ -28,7 +28,7 @@ app.MapGet("/type/{breadType}/weight/{weight}", (string breadType, int weight) =
             break;
         case "focaccia":
             waterPercent = 90.0F;
-            yeastPercent = .75F;
+            yeastPercent = 0.75F;
             saltPercent = 3.5F;
             sugarPercent = 0.0F;
             fatPercent = 9.4F;
@@ -70,19 +70,19 @@ app.MapGet("/type/{breadType}/weight/{weight}", (string breadType, int weight) =
             break;
     }
 
-    float TotalPercent = 1 + (waterPercent + yeastPercent + saltPercent + sugarPercent + fatPercent) / 100;
+    float TotalPercent = 1.0f + (waterPercent + yeastPercent + saltPercent + sugarPercent + fatPercent) / 100;
     float Flour = (mass / TotalPercent);
 
     var bread = new Dough
         (
             (string) breadType,
             (int) mass,
-            (int) Flour,
-            (int) ( Flour * (waterPercent / 100) ),
-            (int) ( Flour * (yeastPercent / 100) ),
-            (int) ( Flour * (saltPercent / 100) ),
-            (int) ( Flour * (sugarPercent / 100) ),
-            (int) ( Flour * (fatPercent / 100) )
+            (int) Math.Ceiling(Flour),
+            (int) (Math.Ceiling(Flour * (waterPercent / 100)) ),
+            (int) (Math.Ceiling(Flour * (yeastPercent / 100)) ),
+            (int) (Math.Ceiling(Flour * (saltPercent / 100)) ),
+            (int) (Math.Ceiling(Flour * (sugarPercent / 100)) ),
+            (int) (Math.Ceiling(Flour * (fatPercent / 100)) )
         );
     return (bread);
 
