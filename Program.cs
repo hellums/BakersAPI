@@ -54,6 +54,20 @@ app.MapGet("/type/{breadType}/weight/{weight}", (string breadType, int weight) =
             sugarPercent = 2.5F;
             fatPercent = 5.0F;
             break;
+        case "rolls":
+            waterPercent = 60.0F;
+            yeastPercent = 2.3F;
+            saltPercent = 1.3F;
+            sugarPercent = 10.0F;
+            fatPercent = 10.0F;
+            break;
+        case "dumplings":
+            waterPercent = 71.0F;
+            yeastPercent = 0.0F;
+            saltPercent = 1.0F;
+            sugarPercent = 0.0F;
+            fatPercent = 9.0F;
+            break;
         case "pizza":
             waterPercent = 59.0F;
             yeastPercent = 1.25F;
@@ -90,7 +104,7 @@ app.MapGet("/type/{breadType}/weight/{weight}", (string breadType, int weight) =
 
 app.MapGet("/api", () =>
 {
-    return("Instructions: Replace /api in URL with /type/ciabatta/weight/1000 (other types: sandwich, focaccia, french, pizza, or buns; weight is in grams)");
+    return("Instructions: Replace /api in URL with /type/ciabatta/weight/1000 (other types: sandwich, focaccia, french, pizza, rolls, buns, or dumplings; weight is in grams)");
 });
 
 app.Run();
