@@ -8,7 +8,7 @@ var app = builder.Build();
 
 app.UseHttpsRedirection();
 
-app.MapGet("/type/{breadType}/weight/{weight}", (string breadType, int weight) =>
+app.MapGet("/api/{breadType}/{weight}", (string breadType, int weight) =>
 {
     int mass = weight;
     float waterPercent;
@@ -89,14 +89,14 @@ app.MapGet("/type/{breadType}/weight/{weight}", (string breadType, int weight) =
 
     var bread = new Dough
         (
-            (string) breadType,
-            (int) mass,
-            (int) Math.Ceiling(Flour),
-            (int) (Math.Ceiling(Flour * (waterPercent / 100)) ),
-            (int) (Math.Ceiling(Flour * (yeastPercent / 100)) ),
-            (int) (Math.Ceiling(Flour * (saltPercent / 100)) ),
-            (int) (Math.Ceiling(Flour * (sugarPercent / 100)) ),
-            (int) (Math.Ceiling(Flour * (fatPercent / 100)) )
+            (string)breadType,
+            (int)mass,
+            (int)Math.Ceiling(Flour),
+            (int)(Math.Ceiling(Flour * (waterPercent / 100))),
+            (int)(Math.Ceiling(Flour * (yeastPercent / 100))),
+            (int)(Math.Ceiling(Flour * (saltPercent / 100))),
+            (int)(Math.Ceiling(Flour * (sugarPercent / 100))),
+            (int)(Math.Ceiling(Flour * (fatPercent / 100)))
         );
     return (bread);
 
@@ -104,7 +104,7 @@ app.MapGet("/type/{breadType}/weight/{weight}", (string breadType, int weight) =
 
 app.MapGet("/api", () =>
 {
-    return("Instructions: Replace /api in URL with /type/ciabatta/weight/1000 (other types: sandwich, focaccia, french, pizza, rolls, buns, or dumplings; weight is in grams)");
+    return("Instructions: After /api in URL add bread type and weight in grams, for example: /api/ciabatta/900 (other types: sandwich, focaccia, french, pizza, rolls, buns, or dumplings; weight is in grams)");
 });
 
 app.Run();
