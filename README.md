@@ -1,6 +1,6 @@
 # BakersAPI
 
-## This [Baker's Percentage API](https://hellums-bakersapi.azurewebsites.net/api) returns the ingredients (in grams) for common bread types, based on desired total dough needed.
+## This [Baker's Percentage API](https://hellums-bakersapi.azurewebsites.net/api) returns a JSON formatted list of ingredients (in grams) for common bread types, based on desired total dough needed.
 
 Parameters for bread type and weight are passed to the API in the following format:
 
